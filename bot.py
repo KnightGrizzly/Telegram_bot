@@ -9,7 +9,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.types.bot_command import BotCommand
 
-from handler import router
+from app.handler import router
 from dotenv import load_dotenv
 
 
