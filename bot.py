@@ -1,17 +1,15 @@
 import asyncio
 import logging
 import sys
-
 from os import getenv
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.types.bot_command import BotCommand
-
-from app.handler import router
 from dotenv import load_dotenv
 
+from app.handler import router
 
 load_dotenv()
 
@@ -23,14 +21,12 @@ dp.include_router(router)
 
 
 async def main() -> None:
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-
+    bot = Bot(token=TOKEN,default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await bot.set_my_commands(
         [
             BotCommand(command="start", description="Зaпуск ботa"),
         ]
     )
-
     await dp.start_polling(bot)
 
 
